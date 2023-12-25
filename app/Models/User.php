@@ -11,7 +11,9 @@ use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    use HasApiTokens;
+    use HasFactory;
+    use Notifiable;
 
     /**
      * The attributes that are mass assignable.
@@ -44,15 +46,17 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
-    public function creditors() : HasMany
+    public function creditors(): HasMany
     {
         return $this->hasMany(Creditor::class);
     }
-    public function profiles() : HasMany
+
+    public function profiles(): HasMany
     {
         return $this->hasMany(Profile::class);
     }
-    public function debts() : HasMany
+
+    public function debts(): HasMany
     {
         return $this->hasMany(Debt::class);
     }

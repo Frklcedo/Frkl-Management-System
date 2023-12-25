@@ -24,5 +24,8 @@ class Debt extends Model
     {
         return $this->hasOneThrough(Creditor::class, User::class);
     }
-    public function installments() : HasMany
+    public function installments() : HasMany{
+        return $this->hasMany(Installment::class);
+    }
+
 }

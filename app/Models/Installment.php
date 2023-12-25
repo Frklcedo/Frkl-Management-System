@@ -10,7 +10,7 @@ class Installment extends Model
 {
     use HasFactory;
 
-    public function debt() : BelongsTo
+    public function debt(): BelongsTo
     {
         return $this->belongsTo(Debt::class);
     }
