@@ -18,6 +18,9 @@
                 </div>
                 <div class="flex gap-2">
                     @auth
+                    <div class="text-center text-sm font-medium text-slate-600">
+                        Hello, <span class="text-sky-700 font-bold">{{ auth()->user()->name }}</span>
+                    </div>
                     @else
                     <a tabindex="-1" href="{{ route('auth.create') }}">
                         <x-button>

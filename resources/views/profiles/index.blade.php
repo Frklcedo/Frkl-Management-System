@@ -1,12 +1,12 @@
 <x-layout>
     <div class="grid grid-cols-profiles auto-rows-fr gap-4">
         @foreach( $profiles as $profile )
-        <div class="p-8 bg-white shadow rounded-2xl min-h-48">
+        <a href="{{ route( 'profiles.show', [ 'profile' => $profile ] ) }}" class="p-8 bg-white shadow rounded-2xl min-h-48">
             <h2 class="font-bold text-2xl text-slate-600 mb-2">{{ $profile->name }}</h2>
             <div>
                 {{ $profile->description }}
             </div>
-        </div>
+        </a>
         @endforeach
         <div class="p-8 border-8 border-dashed border-slate-600 rounded-2xl min-h-48 grid place-items-center overflow-hidden">
             <a href="{{ route('profiles.create') }}" class="flex flex-col items-center gap-2 transition-transform hover:-translate-y-2 duration-300">

@@ -37,16 +37,19 @@ class ProfileController extends Controller
             'user_id' => $request->user()->id,
         ]);
 
-        return redirect()->route('profiles.show', ['profile', $profile->id]);
+        return redirect()->route('profiles.show', ['profile' => $profile]);
 
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Profile $profile)
     {
-        //
+
+        return view('profiles.show', [
+            'profile' => $profile,
+        ]);
     }
 
     /**
