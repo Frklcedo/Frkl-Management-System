@@ -12,20 +12,20 @@ class Debt extends Model
 {
     use HasFactory;
 
-    public function profile() : BelongsTo
+    public static array $status = ['paid', 'open', 'closed'];
+
+    public function profile(): BelongsTo
     {
         return $this->belongsTo(Profile::class);
     }
-    public function user() : BelongsTo
-    {
-        return $this->belongsTo(User::class);
-    }
-    public function creditor() : HasOneThrough
+
+    public function creditor(): HasOneThrough
     {
         return $this->hasOneThrough(Creditor::class, User::class);
     }
-    public function installments() : HasMany{
+
+    public function installments(): HasMany
+    {
         return $this->hasMany(Installment::class);
     }
-
 }

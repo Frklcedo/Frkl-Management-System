@@ -15,12 +15,11 @@ return new class extends Migration
             $table->id();
 
             $table->string('name');
-            $table->decimal('value');
+            $table->decimal('value', 10, 2);
             $table->date('date');
-            $table->enum('status', ['paid', 'open', 'closed']);
+            $table->enum('status', \App\Models\Debt::$status);
             $table->boolean('constant');
 
-            $table->foreignIdFor(\App\Models\User::class)->constrained();
             $table->foreignIdFor(\App\Models\Profile::class)->constrained();
             $table->foreignIdFor(\App\Models\Creditor::class)->constrained();
 

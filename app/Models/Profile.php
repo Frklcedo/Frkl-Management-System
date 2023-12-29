@@ -11,11 +11,18 @@ class Profile extends Model
 {
     use HasFactory;
 
-    public function user() : BelongsTo
+    protected $fillable = [
+        'name',
+        'description',
+        'user_id',
+    ];
+
+    public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
     }
-    public function debts() : HasMany
+
+    public function debts(): HasMany
     {
         return $this->has(Debt::class);
     }

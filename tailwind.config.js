@@ -6,8 +6,14 @@ export default {
         "./resources/**/*.vue",
     ],
     theme: {
-        extend: {},
+        extend: {
+            gridTemplateColumns: {
+                profiles: 'repeat(auto-fit, minmax(20rem, 1fr))'
+            }
+        },
     },
-    plugins: [],
+    plugins: [
+        require('@tailwindcss/forms'),
+    ],
 }
 

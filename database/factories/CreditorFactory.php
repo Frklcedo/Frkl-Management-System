@@ -17,7 +17,8 @@ class CreditorFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'name' => fake()->name(),
+            'observations' => fake()->text(),
         ];
     }
 }
