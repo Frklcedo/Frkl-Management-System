@@ -31,8 +31,11 @@
                 </div>
             </div>
         </header>
-        <div class="grid container">
-            <nav id="nav bg-white">
+        <div class="container flex">
+            <nav id="nav" class="bg-white shadow-sm">
+                <ul class="flex flex-col gap-2">
+                    <li><a class="block text-slate-600 font-medium hover:text-sky-700 hover:translate-x-2 transition-all duration-300" href="{{ route('profiles.index') }}">Profiles</a></li>
+                </ul>
             </nav>
             <div class="content px-16 py-12">
                 {{ $slot }}
