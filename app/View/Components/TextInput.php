@@ -14,9 +14,18 @@ class TextInput extends Component
     public function __construct(
         public ?string $value = null,
         public ?string $name = null,
+        public ?string $id = null,
         public ?string $placeholder = null,
         public string $type = 'text',
+        public bool $noid = false,
+        public ?array $model = null,
     ) {
+        if ($this->id == null && $this->noid === false) {
+            $this->id = $this->name;
+        }
+        if ($this->model) {
+            $this->model = ($this->model);
+        }
     }
 
     /**

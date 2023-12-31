@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>Debt Management System</title>
-    @vite('resources/css/app.css')
+    @vite(['resources/css/app.css', 'resources/js/app.js' ])
 </head>
 
 <body class="antialiased">
@@ -35,9 +35,10 @@
             <nav id="nav" class="bg-white shadow-sm">
                 <ul class="flex flex-col gap-2">
                     <li><a class="block text-slate-600 font-medium hover:text-sky-700 hover:translate-x-2 transition-all duration-300" href="{{ route('profiles.index') }}">Profiles</a></li>
+                    <li><a class="block text-slate-600 font-medium hover:text-sky-700 hover:translate-x-2 transition-all duration-300" href="{{ route('creditors.index') }}">Creditors</a></li>
                 </ul>
             </nav>
-            <div class="content px-16 py-12">
+            <div class="content px-16 py-12 grow">
                 {{ $slot }}
             </div>
         </div>

@@ -24,8 +24,13 @@ class DatabaseSeeder extends Seeder
                 $num_creditors = random_int(1, 3);
                 $num_profiles = random_int(1, 3);
 
-                $creditors = \App\Models\Creditor::factory($num_creditors)
-                    ->for($user)->create();
+                $creditors = \App\Models\Creditor::factory($num_creditors)->for($user)->create()->each(
+                    function ($creditor) {
+                        \App\Models\PaymentMethod::factory(random_int(2, 4))
+                            ->for($creditor)->create();
+                    }
+                );
+
                 $profiles = \App\Models\Profile::factory($num_profiles)
                     ->for($user)->create();
 

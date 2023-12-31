@@ -3,6 +3,10 @@
 @tailwind utilities;
 
 
+#app {
+    @apply grid grid-rows-app;
+}
+
 #nav {
     @apply basis-80 overflow-hidden px-16 py-12
 }

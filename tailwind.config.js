@@ -7,6 +7,9 @@ export default {
     ],
     theme: {
         extend: {
+            gridTemplateRows: {
+                app: 'auto 1fr'
+            },
             gridTemplateColumns: {
                 profiles: 'repeat(auto-fit, minmax(20rem, 1fr))'
             }

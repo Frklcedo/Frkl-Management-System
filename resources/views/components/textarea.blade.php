@@ -1,0 +1,1 @@
+<textarea class="border-0 ring-slate-600 ring-2 focus:ring-2 focus:ring-sky-700 transition-colors rounded-lg" id="{{ $name }}" name="{{ $name }}" cols="30" rows="10" placeholder="{{ $placeholder }}">{{ $slot }}</textarea>
