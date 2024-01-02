@@ -22,7 +22,7 @@ Route::get('/', fn () => to_route('profiles.index'));
 Route::resource('profiles', ProfileController::class);
 Route::resource('profiles.debts', DebtController::class)
     ->scoped(['debt' => 'profile'])
-    ->only(['create']);
+    ->only(['create', 'store']);
 
 Route::resource('creditors', CreditorController::class);
 

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Profile;
 use Illuminate\Http\Request;
 
 class DebtController extends Controller
@@ -17,9 +18,11 @@ class DebtController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(Profile $profile)
     {
-        //
+
+        return view('profiles.debts.create', compact('profile'));
+
     }
 
     /**

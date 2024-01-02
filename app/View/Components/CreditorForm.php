@@ -6,14 +6,14 @@ use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class ProfileForm extends Component
+class CreditorForm extends Component
 {
     /**
      * Create a new component instance.
      */
-    public function __construct(
-        public $profile = null
-    ) {
+    public function __construct()
+    {
+        //
     }
 
     /**
@@ -21,6 +21,6 @@ class ProfileForm extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.profile-form');
+        return view('components.creditor-form');
     }
 }

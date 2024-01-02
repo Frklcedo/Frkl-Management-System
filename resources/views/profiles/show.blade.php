@@ -10,7 +10,9 @@
             <p>
                 Add new debt
             </p>
-            <x-button>New debt</x-button>
+            <a href="{{ route('profiles.debts.create', ['profile' => $profile]) }}">
+                <x-button>New debt</x-button>
+            </a>
         </div>
         <table class="table">
             <caption class="hidden">Table of debts</caption>

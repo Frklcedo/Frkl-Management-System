@@ -12,7 +12,9 @@ class ProfileController extends Controller
      */
     public function index()
     {
-        return view('profiles.index', ['profiles' => Profile::all()]);
+        $profiles = auth()->user()->profiles()->get();
+
+        return view('profiles.index', ['profiles' => $profiles]);
     }
 
     /**
