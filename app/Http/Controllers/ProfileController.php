@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ProfileRequest;
 use App\Models\Profile;
-use Illuminate\Http\Request;
 
 class ProfileController extends Controller
 {
@@ -26,16 +26,12 @@ class ProfileController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(ProfileRequest $request)
     {
 
-        $profile = Profile::create([
-            ...$request->validate([
-                'name' => 'required',
-                'description' => 'max:255',
-            ]),
-            'user_id' => $request->user()->id,
-        ]);
+        $profile = $request->user()->profiles()->create(
+            $request->validated(),
+        );
 
         return redirect()->route('profiles.show', ['profile' => $profile]);
 
@@ -44,8 +40,10 @@ class ProfileController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Profile $profile)
+    public function show(int $id)
     {
+
+        $profile = Profile::findOrFail($id);
 
         return view('profiles.show', [
             'profile' => $profile,
@@ -57,22 +55,34 @@ class ProfileController extends Controller
      */
     public function edit(string $id)
     {
-        //
+
+        $profile = Profile::findOrFail($id);
+
+        return view('profiles.edit', [
+            'profile' => $profile,
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(ProfileRequest $request, Profile $profile)
     {
-        //
+
+        $profile->update($request->validated());
+
+        return redirect()->route('profiles.show', ['profile' => $profile])
+            ->with('success', $profile->name.' updated successfully');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Profile $profile)
     {
-        //
+
+        $profile->delete();
+
+        return redirect()->route('profiles.index');
     }
 }

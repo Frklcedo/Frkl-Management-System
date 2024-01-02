@@ -39,6 +39,9 @@
                 </ul>
             </nav>
             <div class="content px-16 py-12 grow">
+                @if(session()->has('success'))
+                <div class="bg-green-600 w-full text-center font-semibold text-white p-4 mb-4">{{ session('success') }}</div>
+                @endif
                 {{ $slot }}
             </div>
         </div>

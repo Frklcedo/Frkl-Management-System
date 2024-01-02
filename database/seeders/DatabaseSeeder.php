@@ -34,16 +34,16 @@ class DatabaseSeeder extends Seeder
                 $profiles = \App\Models\Profile::factory($num_profiles)
                     ->for($user)->create();
 
-                $profiles->each(
-                    function ($profile) use ($creditors) {
-                        $num_debts = random_int(2, 10);
-                        Debt::factory($num_debts)
-                            ->for($profile)
-                            ->create([
-                                'creditor_id' => $creditors->random()->id,
-                            ]);
-                    }
-                );
+                // $profiles->each(
+                //     function ($profile) use ($creditors) {
+                //         $num_debts = random_int(2, 10);
+                //         Debt::factory($num_debts)
+                //             ->for($profile)
+                //             ->create([
+                //                 'creditor_id' => $creditors->random()->id,
+                //             ]);
+                //     }
+                // );
 
             }
         );

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CreditorController;
+use App\Http\Controllers\DebtController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -19,6 +20,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', fn () => to_route('profiles.index'));
 
 Route::resource('profiles', ProfileController::class);
+Route::resource('profiles.debts', DebtController::class)
+    ->scoped(['debt' => 'profile'])
+    ->only(['create']);
 
 Route::resource('creditors', CreditorController::class);
 
